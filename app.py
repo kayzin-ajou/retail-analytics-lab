@@ -21,15 +21,15 @@ STEPS = ["01 · 문제 정의", "02 · 데이터 수집/이해", "03 · 품질 �
 st.set_page_config(page_title="Retail Analytics Lab", page_icon="📈", layout="wide", initial_sidebar_state="expanded")
 st.markdown('''<style>
 :root{--lab:#5fe0c8} .block-container{padding-top:2rem;max-width:1450px}
-[data-testid="stSidebar"]{background:linear-gradient(180deg,#102235,#152a3b)}
-[data-testid="stSidebar"] *{color:#ecf5f7!important}
-.hero{background:linear-gradient(114deg,#102a40,#124558);border:1px solid #2f6073;border-radius:17px;padding:28px 32px;color:white;margin-bottom:18px}
-.hero h1{font-size:2.15rem;margin:4px 0;color:white}.hero p{color:#c5e4e5;margin:0}
-.label{color:#75e1cf;font-weight:800;letter-spacing:1.4px;font-size:11px}
-.explain{background:rgba(110,166,188,.09);border-left:3px solid #38bfae;padding:14px 17px;border-radius:5px;margin:10px 0 22px}
-.source-line{background:rgba(45,161,137,.12);border-radius:7px;padding:9px 12px;margin:13px 0;font-size:14px}
+[data-testid="stSidebar"]{background:linear-gradient(180deg,#D8EFFF,#BFE3FA)}
+[data-testid="stSidebar"] *{color:#17324D!important}
+.hero{background:linear-gradient(114deg,#B8E2FA,#E1F4FF);border:1px solid #8AC9EB;border-radius:17px;padding:28px 32px;color:#17324D;margin-bottom:18px}
+.hero h1{font-size:2.15rem;margin:4px 0;color:#123653}.hero p{color:#355D78;margin:0}
+.label{color:#247FAF;font-weight:800;letter-spacing:1.4px;font-size:11px}
+.explain{background:rgba(74,162,218,.12);border-left:3px solid #399DD4;padding:14px 17px;border-radius:5px;margin:10px 0 22px}
+.source-line{background:rgba(74,162,218,.14);border-radius:7px;padding:9px 12px;margin:13px 0;font-size:14px}
 .limitation{background:rgba(235,169,80,.09);border-left:3px solid #d59f47;padding:12px 14px;border-radius:5px}
-[data-testid="stMetric"]{border:1px solid rgba(128,157,177,.22);border-radius:12px;padding:13px;background:rgba(124,157,177,.05)}
+[data-testid="stMetric"]{border:1px solid rgba(128,157,177,.22);border-radius:12px;padding:13px;background:rgba(137,202,238,.12)}
 </style>''', unsafe_allow_html=True)
 
 @st.cache_data(show_spinner="공식 UCI 엑셀 파일을 읽는 중입니다. 첫 실행은 다소 느릴 수 있어요…")
