@@ -1,0 +1,205 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><title>Retail Analytics Lab | 분석 보고서</title>
+<style>body{font-family:-apple-system,BlinkMacSystemFont,'Malgun Gothic',sans-serif;max-width:940px;margin:45px auto;padding:0 24px;color:#1b2634;line-height:1.65}h1{font-size:31px}h2{font-size:20px;color:#214c77;margin-top:36px}header{border-bottom:3px solid #1d647c;padding-bottom:20px}.small{color:#617384;font-size:13px}.kpis{display:flex;gap:14px;flex-wrap:wrap;margin:25px 0}.kpi{background:#edf4f8;padding:14px;border-radius:10px;min-width:150px}.kpi b{font-size:22px}table{border-collapse:collapse;width:100%;font-size:13px}th,td{border-bottom:1px solid #dbe4ea;text-align:left;padding:9px}th{background:#eef3f8}section{page-break-inside:avoid}li{margin-bottom:11px}@media print{body{margin:0}}</style></head><body>
+<header><p class="small">RETAIL ANALYTICS LAB · EDUCATIONAL ANALYSIS</p><h1>실무형 온라인 판매 데이터 분석 보고서</h1><p>자료 구분: <b>합성 학습 데이터 · 실제 기업 자료 아님</b> / 생성: 2026-11-15 15:16 UTC</p></header>
+<div class="kpis"><div class="kpi">양수 판매라인 매출<br><b>£34,481.00</b></div><div class="kpi">주문 건수<br><b>290</b></div><div class="kpi">주문당 평균<br><b>£118.90</b></div><div class="kpi">식별 가능 고객<br><b>159</b></div></div>
+<section><h2>1. 질문과 방법</h2><p>거래 데이터로 월별·국가별·상품별 매출과 고객 구매 특성을 이해합니다. InvoiceNo에 C가 붙은 취소행, 음수 수량, 0 이하 단가를 양수 판매액에서 제외했습니다. 동일 전체행의 중복 제거: 예.</p><p>원본 902행 → 분석용 869행</p></section>
+<section><h2>정제 작업 기록</h2><table class="dataframe tbl">
+  <thead>
+    <tr style="text-align: right;">
+      <th>처리 기준</th>
+      <th>제외 행 수</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>동일한 모든 열의 중복행 제외</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>필수값·날짜·숫자 오류 제외</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>취소코드 또는 음수 수량 제외</td>
+      <td>24</td>
+    </tr>
+    <tr>
+      <td>수량·단가 0 이하 제외</td>
+      <td>7</td>
+    </tr>
+  </tbody>
+</table></section><section><h2>월별 매출</h2><table class="dataframe tbl">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Month</th>
+      <th>매출</th>
+      <th>주문수</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2025-01</td>
+      <td>2404.5</td>
+      <td>63</td>
+    </tr>
+    <tr>
+      <td>2025-02</td>
+      <td>3721.5</td>
+      <td>81</td>
+    </tr>
+    <tr>
+      <td>2025-03</td>
+      <td>2413.5</td>
+      <td>58</td>
+    </tr>
+    <tr>
+      <td>2025-04</td>
+      <td>2714.5</td>
+      <td>68</td>
+    </tr>
+    <tr>
+      <td>2025-05</td>
+      <td>1949.5</td>
+      <td>43</td>
+    </tr>
+    <tr>
+      <td>2025-06</td>
+      <td>3219.5</td>
+      <td>74</td>
+    </tr>
+    <tr>
+      <td>2025-07</td>
+      <td>3495.5</td>
+      <td>63</td>
+    </tr>
+    <tr>
+      <td>2025-08</td>
+      <td>2938.0</td>
+      <td>67</td>
+    </tr>
+    <tr>
+      <td>2025-09</td>
+      <td>2601.5</td>
+      <td>66</td>
+    </tr>
+    <tr>
+      <td>2025-10</td>
+      <td>3487.0</td>
+      <td>82</td>
+    </tr>
+    <tr>
+      <td>2025-11</td>
+      <td>2418.0</td>
+      <td>56</td>
+    </tr>
+    <tr>
+      <td>2025-12</td>
+      <td>3118.0</td>
+      <td>74</td>
+    </tr>
+  </tbody>
+</table></section><section><h2>상위 국가</h2><table class="dataframe tbl">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Country</th>
+      <th>매출</th>
+      <th>주문수</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>United Kingdom</td>
+      <td>24246.0</td>
+      <td>284</td>
+    </tr>
+    <tr>
+      <td>France</td>
+      <td>4298.5</td>
+      <td>90</td>
+    </tr>
+    <tr>
+      <td>Germany</td>
+      <td>3886.0</td>
+      <td>88</td>
+    </tr>
+    <tr>
+      <td>Korea</td>
+      <td>2050.5</td>
+      <td>50</td>
+    </tr>
+  </tbody>
+</table></section><section><h2>상위 상품</h2><table class="dataframe tbl">
+  <thead>
+    <tr style="text-align: right;">
+      <th>StockCode</th>
+      <th>상품명</th>
+      <th>매출</th>
+      <th>판매수량</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>D-01</td>
+      <td>가상 텀블러</td>
+      <td>14412.0</td>
+      <td>1201.0</td>
+    </tr>
+    <tr>
+      <td>D-04</td>
+      <td>가상 머그컵</td>
+      <td>8695.5</td>
+      <td>561.0</td>
+    </tr>
+    <tr>
+      <td>D-02</td>
+      <td>가상 노트</td>
+      <td>5473.0</td>
+      <td>842.0</td>
+    </tr>
+    <tr>
+      <td>D-03</td>
+      <td>가상 수첩</td>
+      <td>4456.0</td>
+      <td>557.0</td>
+    </tr>
+    <tr>
+      <td>D-05</td>
+      <td>가상 펜 세트</td>
+      <td>1444.5</td>
+      <td>321.0</td>
+    </tr>
+  </tbody>
+</table></section><section><h2>고객 세그먼트별 인원</h2><table class="dataframe tbl">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Segment</th>
+      <th>고객 수</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>이탈 위험 후보</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <td>일반 고객</td>
+      <td>61</td>
+    </tr>
+    <tr>
+      <td>최근 유입 고객</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td>충성 고객</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <td>핵심 고객</td>
+      <td>31</td>
+    </tr>
+  </tbody>
+</table></section>
+<section><h2>2. 데이터 기반 확인 과제</h2><ul><li><strong>시장 집중도 확인</strong>: 매출 상위 국가 비중이 70.3%입니다. 국가별 물류·마케팅 효율을 확인하세요. 시장 집중도가 높아도 반드시 위험을 뜻하지는 않습니다.</li><li><strong>재구매 고객 검토</strong>: RFM 규칙에 따른 이탈 위험 후보는 26명입니다. 구매 주기와 연락 동의 여부를 추가 확인한 후 유지 캠페인을 시험하세요. 이탈을 예측한 결과는 아닙니다.</li><li><strong>시즌별 수요 검토</strong>: 집계 기간 중 매출이 가장 높은 달은 2025-02입니다. 프로모션, 휴일, 부분 월 포함 여부를 확인해야 원인을 판단할 수 있습니다.</li></ul></section>
+<section><h2>3. 해석 한계 및 출처</h2><p>표시된 매출은 양수 거래라인 합계이며 환불 정산 후 순매출, 이익, 부가세, 실제 현금흐름이 아닙니다. 배송비나 비용성 StockCode가 포함될 수 있습니다. 고객번호가 없는 매출은 RFM 분석에서 제외됩니다. RFM 세그먼트는 규칙 기반 분류일 뿐 실제 이탈 예측이 아닙니다. 상관관계로 마케팅 효과의 인과성을 판단할 수 없습니다.</p>
+<p>UCI Online Retail (Chen, D., 2015), https://doi.org/10.24432/C5BW33, CC BY 4.0. 실제 자료를 다운로드한 경우: 2010-12-01~2011-12-09 영국 익명 소매기업의 역사적 거래 데이터. 자료 구분이 학습용 또는 사용자 파일인 경우 원본과 다를 수 있습니다.</p></section>
+</body></html>
